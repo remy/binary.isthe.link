@@ -130,8 +130,8 @@ const Page = props => {
           onChange={handleRepChange}
           value={rep}
         >
-          <option value="2">2's compliment</option>
-          <option value="1">1's compliment</option>
+          <option value="2">2's complement</option>
+          <option value="1">1's complement</option>
           <option value="0">Sign magnitude</option>
         </Field>
       )}
