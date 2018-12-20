@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "next",
-    "build": "next build",
+    "build": "NODE_ENV=production next build && next export",
     "start": "next start",
-    "deploy": "NODE_ENV=production npm run build; NODE_ENV=production next export; cd out; now -A ../now.json && cd .. && now alias"
+    "deploy": "npm run build; now out ; now alias"
   },
   "keywords": [],
   "author": "",
