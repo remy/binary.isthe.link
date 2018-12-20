@@ -13,7 +13,7 @@ const Page = props => {
   const [signed, setSign] = useState(props.signed);
   const [length, setLength] = useState(props.length);
   const [rep, setRep] = useState(props.rep);
-  const [showInfo, setShowInfo] = useState(props.showInfo);
+  const [showInfo, setShowInfo] = useState(true);
   const [value, setValue] = useState(
     props.value ||
       Array.from({ length })
@@ -89,21 +89,6 @@ const Page = props => {
   return (
     <div>
       <style jsx>{`
-        p {
-          font-size: 14px;
-          color: #999;
-          line-height: 1.4;
-        }
-
-        p:last-child {
-          margin-bottom: 2rem;
-        }
-
-        p a {
-          color: #666;
-          font-size: 14px;
-        }
-
         .overflow {
           overflow-x: auto;
           overflow-y: visible;
@@ -126,26 +111,6 @@ const Page = props => {
           color: #666;
         }
       `}</style>
-      {showInfo && (
-        <p>
-          This project visualises how signed and unsigned binary works. You can
-          change the value by tapping the binary column headings or entering a
-          decimal value at the bottom. Further reading can be{' '}
-          <a href="https://www3.ntu.edu.sg/home/ehchua/programming/java/datarepresentation.html">
-            found here
-          </a>
-          . I've also made a <a href="https://bitcalc.app">bit calculator</a>.
-          <Button
-            hover="dismiss"
-            onClick={() => {
-              setShowInfo(false);
-              localStorage.setItem('showInfo', 'false');
-            }}
-          >
-            ×
-          </Button>
-        </p>
-      )}
       <Field label="Size" as="select" onChange={handleSizeChange}>
         <option value="8">8 bit</option>
         <option value="16">16 bit</option>
@@ -196,8 +161,21 @@ const Page = props => {
   );
 };
 
+/*
+<Button
+            hover="dismiss"
+            onClick={() => {
+              setShowInfo(false);
+              localStorage.setItem('showInfo', 'false');
+            }}
+          >
+            ×
+          </Button>
+          */
+
 Page.getInitialProps = ({ query }) => {
   const { length = 8, value = '00010000', signed = true, rep = 2 } = query;
+
   return {
     fed: true,
     length: parseInt(length, 10),

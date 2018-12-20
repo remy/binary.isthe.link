@@ -30,7 +30,7 @@ export default ({ children }) => (
       }
 
       #__next {
-        min-height: 100vh;
+        min-height: calc(100vh - 44px);
       }
     `}</style>
     <main>
@@ -40,17 +40,55 @@ export default ({ children }) => (
           margin: 0 auto;
           display: flex;
           flex-direction: column;
-          min-height: 100vh;
+          min-height: calc(100vh - 44px);
         }
 
         main > div {
           flex: 1;
         }
+
+        footer p {
+          font-size: 14px;
+        }
+        p {
+          font-size: 14px;
+          color: #999;
+          line-height: 1.4;
+        }
+
+        p:first-child {
+          margin-top: 2.5rem;
+        }
+
+        p a {
+          color: #666;
+          font-size: 14px;
+        }
       `}</style>
       <div>{children}</div>
       <footer>
         <p>
-          Built by <a href="https://twitter.com/rem">@rem</a> on a rainy day ☔️
+          This project visualises how signed and unsigned binary works. You can
+          change the value by tapping the binary column headings or entering a
+          decimal value at the bottom. Further reading can be{' '}
+          <a
+            target="_blank"
+            href="https://www3.ntu.edu.sg/home/ehchua/programming/java/datarepresentation.html"
+          >
+            found here
+          </a>
+          . I've also made a{' '}
+          <a target="_blank" href="https://bitcalc.app">
+            bit calculator
+          </a>
+          .
+        </p>
+        <p>
+          Built by{' '}
+          <a target="_blank" href="https://twitter.com/rem">
+            @rem
+          </a>{' '}
+          on a rainy day ☔️
         </p>
       </footer>
     </main>
